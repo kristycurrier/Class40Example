@@ -12,15 +12,18 @@ namespace Class40ExampleDotNet.Controllers
         // GET: Demo
         public ActionResult Index()
         {
-            var model = new DemoInputModel
-            {
-                FirstName = "Kristy",
-                Game = "Mario Cart",
-                Age = 32,
-                PlaysGame = false
-            };
+            
+            return View();
+        }
 
-            return View(model);
+        public ActionResult Edit(DemoInputModel model)
+        {
+            //Maybe save this?
+            if(ModelState.IsValid == false)
+            {
+                //we can throw an error here
+            }
+            return RedirectToAction("Index");
         }
     }
 }

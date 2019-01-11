@@ -2,22 +2,30 @@
     ViewBag.Title = "Demo Page";
 }
 
-@model Class40ExampleDotNet.Models.DemoInputModel
+@using Class40ExampleDotNet.Models
+@model DemoInputModel
 
 <h2>Demo Index</h2>
-
-@Html.LabelFor(x => x.FirstName)
-@Html.TextBoxFor(x => x.FirstName)
-
-@Html.LabelFor(x => x.Game)
-@Html.TextBoxFor(x => x.Game)
-
-@Html.LabelFor(x => x.Age)
-@Html.TextBoxFor(x => x.Age)
-
-@Html.LabelFor(x => x.PlaysGame)
-@Html.CheckBoxFor(x => x.PlaysGame)
-
+@using (Html.BeginForm("Edit", "Demo", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.FirstName)
+        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", placeholder = "Enter first name" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Game)
+        @Html.TextBoxFor(x => x.Game, new { @class = "form-control", placeholder = "Enter game" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Age)
+        @Html.TextBoxFor(x => x.Age, new { @class = "form-control", placeholder = "Enter age" })
+    </div>
+    <div class="form-check">
+        @Html.LabelFor(x => x.PlaysGame)
+        @Html.CheckBoxFor(x => x.PlaysGame, new { @class = "form-check-input", placeholder = "Enter first name" })
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+}
 <div>
 
     <p> DEMO PAGE</p>
